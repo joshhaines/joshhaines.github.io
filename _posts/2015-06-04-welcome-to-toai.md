@@ -14,4 +14,4 @@ I've been pretty busy building content with Objective-C in an effort to make iOS
 
 I am extremely passionate about mobile development, and my focus is currently on iOS development. I have 5+ years of development experience (not including college), and work on my own projects outside of work. I am currently in the market for an iOS developer job in the Raleigh-Durham area. If you'd like to talk, I'd be more than happy to connect on [LinkedIn](https://www.linkedin.com/in/joshuashaines).
 
-Thanks for stopping by!
+Thanks for stopping by, and feel free to check-out my [About](http://thoughtsofanintrovert.com/about) page for more info!
