@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Thoughts of an Introvert</title>
+ <link href="http://thoughtsofanintrovert.com//atom.xml" rel="self"/>
+ <link href="http://thoughtsofanintrovert.com/"/>
+ <updated>2015-06-04T15:39:45-04:00</updated>
+ <id>http://thoughtsofanintrovert.com</id>
+ <author>
+   <name>Mark Otto</name>
+   <email>markdotto@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Welcome to TOAI!</title>
+   <link href="http://thoughtsofanintrovert.com///welcome-to-toai"/>
+   <updated>2015-06-04T00:00:00-04:00</updated>
+   <id>http://thoughtsofanintrovert.com/welcome-to-toai</id>
+   <content type="html">&lt;p&gt;Hello and welcome to Thoughts of an Introvert. If you’ve ever been to my site before, then you’ll realize that this isn’t the same look, and the old content is missing.  I’ve gone through a few hosts since first opening this blog a couple years ago, and I decided to start fresh. I’m hosting this site on my &lt;a href=&quot;http://github.com/personary&quot;&gt;Github page&lt;/a&gt;, and using Jekyll as the blogging platform.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;I’ve been pretty busy building content with Objective-C in an effort to make iOS development my main career focus. So going forward I will be posting about my ongoing projects, and will share any code that I decide to make public.&lt;/p&gt;
+
+&lt;h3 id=&quot;to-potential-employers&quot;&gt;To Potential Employers&lt;/h3&gt;
+
+&lt;p&gt;I am extremely passionate about mobile development, and my focus is currently on iOS development. I have 5+ years of development experience (not including college), and work on my own projects outside of work. I am currently in the market for an iOS developer job in the Raleigh-Durham area. If you’d like to talk, I’d be more than happy to connect on &lt;a href=&quot;https://www.linkedin.com/in/joshuashaines&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks for stopping by!&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
