@@ -5,6 +5,8 @@ permalink: jhcollapsingnavbar
 comments: true
 ---
 
+![Navbar](/assets/navbar.gif){: .center-image }
+
 I'm happy to announce my first contribution to the iOS development community on Github: JHCollapsingNavbar! I've been in the process of creating my first app, which is about 75% complete, and one of the features I made was a collapsing view at the top when the user scrolls. This is *very* similar to what the Facebook and Gmail apps do, which were my inspiration for this. I'll talk a little about the background of how I wrestled with the challenge of creating this, but if you'd like to use the code for your own project then go ahead and head on over to [JHCollapsingNavbar](https://github.com/personary/JHCollapsingNavbar).
 
 ----
