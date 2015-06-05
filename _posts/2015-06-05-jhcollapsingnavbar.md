@@ -3,6 +3,7 @@ layout: post
 title: JHCollapsingNavbar
 permalink: jhcollapsingnavbar
 comments: true
+facebook: /assets/navbar.gif
 ---
 
 ![Navbar](/assets/navbar.gif){: .center-image }

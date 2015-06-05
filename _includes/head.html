@@ -22,4 +22,9 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
+
+  <!-- Facebook image -->
+  {% if page.facebook %}
+  <meta property="og:image" content="{{ page.facebook }}" />
+  {% endif %}
 </head>
