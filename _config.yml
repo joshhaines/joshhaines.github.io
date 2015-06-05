@@ -6,7 +6,7 @@ relative_permalinks: true
 
 # Setup
 title:               Thoughts of an Introvert
-tagline:             Joshua Haines
+tagline:             
 url:                 http://thoughtsofanintrovert.com
 paginate:            1
 baseurl:             ""
