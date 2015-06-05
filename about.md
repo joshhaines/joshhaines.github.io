@@ -27,7 +27,7 @@ I'm currently seeking employment opportunities in Raleigh, NC. I love that area,
 
 ----
 
-I'm currently working on [JHCollapsingNavbar](https://github.com/personary/JHCollapsingNavbar) over on my GitHub! It's a custom collapsing view similar to the one seen in the Facebook app. It's free to use for your project as well.
+I'm currently working on [JHCollapsingNavbar](https://github.com/joshhaines/JHCollapsingNavbar) over on my GitHub! It's a custom collapsing view similar to the one seen in the Facebook app. It's free to use for your project as well.
 
 I also have a secret app that I don't want to spill the details on yet, but I will make a post on it soon.
 
