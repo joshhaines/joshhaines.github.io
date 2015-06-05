@@ -8,7 +8,7 @@ facebook: http://thoughtsofanintrovert.com/assets/navbar.gif
 
 ![Navbar](/assets/navbar.gif){: .center-image }
 
-I'm happy to announce my first contribution to the iOS development community on Github: JHCollapsingNavbar! I've been in the process of creating my first app, which is about 75% complete, and one of the features I made was a collapsing view at the top when the user scrolls. This is *very* similar to what the Facebook and Gmail apps do, which were my inspiration for this. I'll talk a little about the background of how I wrestled with the challenge of creating this, but if you'd like to use the code for your own project then go ahead and head on over to [JHCollapsingNavbar](https://github.com/personary/JHCollapsingNavbar).
+I'm happy to announce my first contribution to the iOS development community on Github: JHCollapsingNavbar! I've been in the process of creating my first app, which is about 75% complete, and one of the features I made was a collapsing view at the top when the user scrolls. This is *very* similar to what the Facebook and Google Inbox apps do, which were my inspiration for this. I'll talk a little about the background of how I wrestled with the challenge of creating this, but if you'd like to use the code for your own project then go ahead and head on over to [JHCollapsingNavbar](https://github.com/personary/JHCollapsingNavbar).
 
 ----
 
@@ -20,7 +20,7 @@ I wanted a collapsing view like what is seen in the Facebook app. There are othe
 
 I first tried using a wide combination of UIEdgeInsets, "y" values of the views, scroll deltas, and at one point I was even using "delta of delta" (I was getting the scroll direction with this). I just could *not* get everything to work correctly with each other. I'd get one direction working, but then the other direction would break. I'd get the second direction working, but then snapping would break. I'd get snapping working, and then the view would glitch to a random location.
 
-Getting that smooth 1-to-1 movement like you see in Facebook and Gmail was also a challenge. Certain approaches would move the navbar, but there'd be lag, which caused it too not look at all comparable to what is seen in Facebook.
+Getting that smooth 1-to-1 movement like you see in Facebook and Google Inbox was also a challenge. Certain approaches would move the navbar, but there'd be lag, which caused it too not look at all comparable to what is seen in Facebook.
 
 Looking at my old code, I have so much commented out code, so I just wrote "lol" at the top because I laugh whenever I look at it. I had so much random code that it was getting to be too much to handle for one feature. So I decided to start another project with a different approach.
 
