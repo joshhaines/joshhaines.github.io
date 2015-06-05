@@ -15,7 +15,6 @@ pages_list:
   About: '/about'
   My GitHub: 'http://github.com/joshhaines'
   Archive: '/archive'
-  Feed: '/atom.xml'
 
 # Assets
 #
