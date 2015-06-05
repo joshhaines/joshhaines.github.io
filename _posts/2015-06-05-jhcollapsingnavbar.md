@@ -3,7 +3,7 @@ layout: post
 title: JHCollapsingNavbar
 permalink: jhcollapsingnavbar
 comments: true
-facebook: /assets/navbar.gif
+facebook: http://thoughtsofanintrovert.com/assets/navbar.gif
 ---
 
 ![Navbar](/assets/navbar.gif){: .center-image }
