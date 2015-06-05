@@ -4,7 +4,7 @@ title: Welcome to TOAI!
 permalink: welcome-to-toai
 ---
 
-Hello and welcome to Thoughts of an Introvert. If you've ever been to my site before, then you'll realize that this isn't the same look, and the old content is missing.  I've gone through a few hosts since first opening this blog a couple years ago, and I decided to start fresh. I'm hosting this site on my [Github page](http://github.com/personary), and using Jekyll as the blogging platform.
+Hello and welcome to Thoughts of an Introvert. If you've ever been to my site before, then you'll realize that this isn't the same look, and the old content is missing.  I've gone through a few hosts since first opening this blog a couple years ago, and I decided to start fresh. I'm hosting this site on my [GitHub page](http://github.com/joshhaines), and using Jekyll as the blogging platform.
 
 ----
 
