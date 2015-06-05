@@ -4,13 +4,60 @@
  <title>Thoughts of an Introvert</title>
  <link href="http://thoughtsofanintrovert.com//atom.xml" rel="self"/>
  <link href="http://thoughtsofanintrovert.com/"/>
- <updated>2015-06-04T15:39:45-04:00</updated>
+ <updated>2015-06-05T12:33:16-04:00</updated>
  <id>http://thoughtsofanintrovert.com</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>JHCollapsingNavbar</title>
+   <link href="http://thoughtsofanintrovert.com///jhcollapsingnavbar"/>
+   <updated>2015-06-05T00:00:00-04:00</updated>
+   <id>http://thoughtsofanintrovert.com/jhcollapsingnavbar</id>
+   <content type="html">&lt;p&gt;I’m happy to announce my first contribution to the iOS development community on Github: JHCollapsingNavbar! I’ve been in the process of creating my first app, which is about 75% complete, and one of the features I made was a collapsing view at the top when the user scrolls. This is &lt;em&gt;very&lt;/em&gt; similar to what the Facebook and Gmail apps do, which were my inspiration for this. I’ll talk a little about the background of how I wrestled with the challenge of creating this, but if you’d like to use the code for your own project then go ahead and head on over to &lt;a href=&quot;https://github.com/personary/JHCollapsingNavbar&quot;&gt;JHCollapsingNavbar&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-challenge&quot;&gt;The Challenge&lt;/h2&gt;
+
+&lt;p&gt;I wanted a collapsing view like what is seen in the Facebook app. There are other projects out there that do something similar, but I figured - how hard can it be? Well I ran in to some challenges along the way. I’ll try to recall most of them here.&lt;/p&gt;
+
+&lt;h3 id=&quot;first-approach&quot;&gt;First Approach&lt;/h3&gt;
+
+&lt;p&gt;I first tried using a wide combination of UIEdgeInsets, “y” values of the views, scroll deltas, and at one point I was even using “delta of delta” (I was getting the scroll direction with this). I just could &lt;em&gt;not&lt;/em&gt; get everything to work correctly with each other. I’d get one direction working, but then the other direction would break. I’d get the second direction working, but then snapping would break. I’d get snapping working, and then the view would glitch to a random location.&lt;/p&gt;
+
+&lt;p&gt;Getting that smooth 1-to-1 movement like you see in Facebook and Gmail was also a challenge. Certain approaches would move the navbar, but there’d be lag, which caused it too not look at all comparable to what is seen in Facebook.&lt;/p&gt;
+
+&lt;p&gt;Looking at my old code, I have so much commented out code, so I just wrote “lol” at the top because I laugh whenever I look at it. I had so much random code that it was getting to be too much to handle for one feature. So I decided to start another project with a different approach.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-constraints&quot;&gt;Using Constraints&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;This&lt;/em&gt; is the approach that I was looking for. I set a top constraint on my custom navbar view. My table view was constrained to my navbar. So whenever my navbar moves, my table view should resize. I hooked up my constraint to my view controller as a property, then got to work.&lt;/p&gt;
+
+&lt;p&gt;One of the things I noticed that I needed was a second pan gesture recognizer added to my table view. The pan gesture recognizer that is included with the table view is read-only, and I needed to add my own logic. There’s a method in the UIGestureRecognizerDelegate, &lt;code&gt;(BOOL)gestureRecognizer: shouldRecognizeSimultaneouslyWithGestureRecognizer:&lt;/code&gt;, that allows a second gesture recognizer to be evaluated simultaneously when returning YES. Now that I had my own pan gesture recognizer I was able to add my logic.&lt;/p&gt;
+
+&lt;h3 id=&quot;animations-and-pan-gesture-states&quot;&gt;Animations and Pan Gesture States&lt;/h3&gt;
+
+&lt;p&gt;At first I decided to try out UIView animations. I could get them to work, but the smooth transition I wanted didn’t seem to work correctly - more on that in a little. I then used Facebook Pop for my animations. Facebook Pop was very easy to understand and use on my constraints.&lt;/p&gt;
+
+&lt;p&gt;I also wanted to react to the changes in the pan gesture state, so I found out about KVO and ReactiveCocoa. I decided to give ReactiveCocoa a shot, and was able to easily listen to a change in the pan gesture state. This allowed me to snap the navbar when the user stopped scrolling, and I used a Pop animation for this snapping logic.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;However&lt;/em&gt;, now that I wanted to publish this on Github, I wanted to remove dependance on third party libraries if possible, so this prompted me to try to figure out how to match my Pop animations with UIView animations. I noticed that when I did this that my tableView would &lt;em&gt;not&lt;/em&gt; transition smoothly when my navbar would snap. What I learned was that not only did the navbar need a call to &lt;code&gt;layoutIfNeeded&lt;/code&gt; on the view, but the table view also needed this call. That triggered something in my mind where I think I now understand UIView animations a lot better now.&lt;/p&gt;
+
+&lt;p&gt;Removing dependance on ReactiveCocoa was a small challenge. I effectively just checked for UIGestureRecognizerStateEnded in my gesture recognizer selector. For some reason that idea never entered my mind before, and I just want to slap my forehead.&lt;/p&gt;
+
+&lt;p&gt;So now after removing those two library dependancies I had clean code that anyone could use without downloading Facebook Pop and ReactiveCocoa.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;I’m really excited to get some feedback on this project, and anyone looking to contribute, please do. I know this could be expanded to include other views that inherit from UIScrollView. I’d love to hear any ideas or questions in the comments below. Thanks for reading!&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Welcome to TOAI!</title>
@@ -27,7 +74,7 @@
 
 &lt;p&gt;I am extremely passionate about mobile development, and my focus is currently on iOS development. I have 5+ years of development experience (not including college), and work on my own projects outside of work. I am currently in the market for an iOS developer job in the Raleigh-Durham area. If you’d like to talk, I’d be more than happy to connect on &lt;a href=&quot;https://www.linkedin.com/in/joshuashaines&quot;&gt;LinkedIn&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Thanks for stopping by!&lt;/p&gt;
+&lt;p&gt;Thanks for stopping by, and feel free to check-out my &lt;a href=&quot;http://thoughtsofanintrovert.com/about&quot;&gt;About&lt;/a&gt; page for more info!&lt;/p&gt;
 </content>
  </entry>
  
