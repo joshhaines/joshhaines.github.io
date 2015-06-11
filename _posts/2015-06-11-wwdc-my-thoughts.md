@@ -27,15 +27,17 @@ The `guard` statement really has me looking forward to playing with it. It remin
 
 I'm looking forward to this. I'm used to throwing and catching exceptions in SAP-ABAP quite regularly. I haven't noticed me having to do this much in Objective-C. It will be nice to have this functionality in Swift.
 
-  func loadData() throws { }
+{% highlight ruby %}
+func loadData() throws { }
 
-  func test() {
-	   ￼do {
-		￼    try loadData()
-	   } catch {
-		     print(error)
-	      }
-      }
+func test() {
+   ￼do {
+	￼    try loadData()
+   } catch {
+	     print(error)
+   }
+}
+{% endhighlight %}
 
 ### Open-Source
 
