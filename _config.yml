@@ -2,7 +2,6 @@
 #
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
-relative_permalinks: true
 
 # Setup
 title:               Thoughts of an Introvert
@@ -33,3 +32,15 @@ author:
 version:             1.0.0
 github:
   repo:              https://github.com/poole/poole
+
+# Plugins
+whitelist: []
+gems:      [jekyll-paginate]
+
+# Build settings
+markdown: kramdown
+kramdown:
+  parse_block_html: true
+highlighter: pygments
+
+# pygments_options: ['lineanchors']

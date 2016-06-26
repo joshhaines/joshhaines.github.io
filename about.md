@@ -5,7 +5,7 @@ title: About
 
 ![Joshua Haines](/assets/josh_profile.jpg){: .center-image }
 
-My name is Joshua Haines, and I am an iOS engineer at AD60. Previously I was a senior software engineer and team lead at Accenture. I am a programmer down to my core, and love the idea of learning some new cool code concepts. I also submit code to my [GitHub](http://github.com/joshhaines), and I would love to hear what you have to say about it.
+My name is Joshua Haines, and I am a Mobile Engineer at AD60. Previously I was a senior software engineer and team lead at Accenture. I am a programmer down to my core, and love the idea of learning some new cool code concepts. I also submit code to my [GitHub](http://github.com/joshhaines), and I would love to hear what you have to say about it.
 
 ### My Focus for this Blog
 
@@ -23,7 +23,7 @@ If you are curious about how I made this blog, here are some links:
 
 ### My Future Goals
 
-I'm happy to update this section to announce that I've recently started working at AD60 (started in July 2015) in Chapel Hill, NC. It was my goal to find a job as an iOS engineer in the Raleigh triangle area. I love this area, and now I have an awesome job as well. If you'd like to connect, please reach out to me on [LinkedIn](https://www.linkedin.com/in/joshuashaines)!
+I'm happy to update this section to announce that I've recently started working at AD60 (started in July 2015) in Chapel Hill, NC. It was my goal to find a job as an Mobile Engineer in the Raleigh triangle area. I love this area, and now I have an awesome job as well. If you'd like to connect, please reach out to me on [LinkedIn](https://www.linkedin.com/in/joshuashaines)!
 
 My future goals at this point include learning a lot more about Swift, and continuing to build my knowledge on Objective-C. Not only do I want to improve my knowledge on the syntax, but I also want to improve my ability to write great code beyond syntax alone. Syntax is only a small part of quality code. I intend to use this blog as a place to share best practices as I find them.
 
