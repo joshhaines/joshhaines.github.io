@@ -35,7 +35,7 @@ github:
 
 # Plugins
 whitelist: []
-gems:      [jekyll-paginate]
+gems:      [jekyll-paginate, jekyll-sitemap]
 
 # Build settings
 markdown: kramdown
