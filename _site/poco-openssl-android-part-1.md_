@@ -11,7 +11,7 @@ xmlns:fb="http://ogp.me/ns/fb#">
 
   <title>
     
-      Thoughts of an Introvert &middot; Joshua Haines
+      POCO and OpenSSL Using C++ on Android - Part 1 &middot; Thoughts of an Introvert
     
   </title>
 
@@ -66,18 +66,10 @@ xmlns:fb="http://ogp.me/ns/fb#">
       </header>
 
       <main>
-        <div class="posts">
-  
-  <article class="post">
-    <h1 class="post-title">
-      <a href="/poco-openssl-android-part-1">
-        POCO and OpenSSL Using C++ on Android - Part 1
-      </a>
-    </h1>
-
-    <time datetime="2016-06-23T00:00:00-04:00" class="post-date">23 Jun 2016</time>
-
-    Recently I've had an interest in using C++ to share code between iOS and Android, and have used a project called [Djinni](https://github.com/dropbox/djinni) (created by the devs over at Dropbox) to do the behind the scenes work that would be a pain to do manually. Definitely check out Djinni if you are at all curious in pursuing this further.
+        <article class="post">
+  <h1 class="post-title">POCO and OpenSSL Using C++ on Android - Part 1</h1>
+  <time datetime="2016-06-23T00:00:00-04:00" class="post-date">23 Jun 2016</time>
+  Recently I've had an interest in using C++ to share code between iOS and Android, and have used a project called [Djinni](https://github.com/dropbox/djinni) (created by the devs over at Dropbox) to do the behind the scenes work that would be a pain to do manually. Definitely check out Djinni if you are at all curious in pursuing this further.
 
 I've successfully been able to use Djinni to compile simple C++ code on both iOS and Android, and it is great to be able to share a lot of business logic between the two platforms. However, one thing I've really wanted, is to use a networking library written in C++ on both iOS and Android. This would save a lot of time to have the networking logic written out once, and then just call some C++ methods from Swift/Java. One place for the code to sit, and if something breaks, then it should only need to be fixed once.
 
@@ -172,20 +164,65 @@ Congratulations! You just got through the part that was definitely the biggest p
 
 In my next post I'll detail how to build POCO. I'll link the article here once it's done. Thanks for reading, and let me know if you have any questions in the comments below!
 
-  </article>
-  
-</div>
+  If you liked this post, you can
+<a href="https://twitter.com/intent/tweet?url=http://thoughtsofanintrovert.com/poco-openssl-android-part-1&text=POCO and OpenSSL Using C++ on Android - Part 1&via=joshshaines"
+   target="_blank">
+  share it with your followers</a>
+or
+<a href="https://twitter.com/joshshaines">
+  follow me on Twitter</a>!
 
-<div class="pagination">
-  
-    <a class="pagination-item older" href="/page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div>
+</article>
+
+<aside class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="//poco-openssl-android-part-1">
+            POCO and OpenSSL Using C++ on Android - Part 1
+            <small><time datetime="2016-06-23T00:00:00-04:00">23 Jun 2016</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="//protocol-oriented-programming">
+            Protocol Oriented Programming in Swift 2.0
+            <small><time datetime="2015-06-20T00:00:00-04:00">20 Jun 2015</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="//wwdc-2015-my-thoughts">
+            WWDC 2015 - Happy to be an iOS Developer
+            <small><time datetime="2015-06-11T00:00:00-04:00">11 Jun 2015</time></small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</aside>
 
         
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'thoughtsofanintrovert';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
 
       </main>
 
