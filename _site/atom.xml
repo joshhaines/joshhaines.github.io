@@ -4,115 +4,13 @@
  <title>Thoughts of an Introvert</title>
  <link href="http://thoughtsofanintrovert.com//atom.xml" rel="self"/>
  <link href="http://thoughtsofanintrovert.com/"/>
- <updated>2016-06-25T23:18:28-04:00</updated>
+ <updated>2016-06-25T23:35:01-04:00</updated>
  <id>http://thoughtsofanintrovert.com</id>
  <author>
    <name>Mark Otto</name>
    <email>markdotto@gmail.com</email>
  </author>
 
- 
- <entry>
-   <title>POCO and OpenSSL Using C++ on Android - Part 1</title>
-   <link href="http://thoughtsofanintrovert.com///poco-openssl-android-part-1"/>
-   <updated>2016-06-23T00:00:00-04:00</updated>
-   <id>http://thoughtsofanintrovert.com/poco-openssl-c++-android-part-1</id>
-   <content type="html">Recently I&#39;ve had an interest in using C++ to share code between iOS and Android, and have used a project called [Djinni](https://github.com/dropbox/djinni) (created by the devs over at Dropbox) to do the behind the scenes work that would be a pain to do manually. Definitely check out Djinni if you are at all curious in pursuing this further.
-
-I&#39;ve successfully been able to use Djinni to compile simple C++ code on both iOS and Android, and it is great to be able to share a lot of business logic between the two platforms. However, one thing I&#39;ve really wanted, is to use a networking library written in C++ on both iOS and Android. This would save a lot of time to have the networking logic written out once, and then just call some C++ methods from Swift/Java. One place for the code to sit, and if something breaks, then it should only need to be fixed once.
-
-That all sounds good, but OpenSSL is a real pain to get working on Android. iOS is fairly easy compared to Android. OpenSSL has a wiki that shows how to build for Android, but it doesn&#39;t say how to compile for all Architectures. And a guy like me who is not a library engineer, and doesn&#39;t claim to be an expert in C++, does not have any inkling on how to compile for all Android architectures. I&#39;ve definitely learned a lot through this whole process, but I still do not claim to know enough. I hope that these posts will serve as some much needed documentation on the process. The web has either very old documentation, or no documentation at all on many of these topics.
-
-I plan on this being a multi-part series of articles explaining the process. In this first article I&#39;ll explain how to build OpenSSL for Android.
-
-----
-
-## Compiling OpenSSL for Android
-
-Let&#39;s get this part out of the way. OpenSSL is an old and bloated library, and I really wish networking libraries would move on to something more slimmed down. Google has recently moved on to BoringSSL on Android, but POCO specifically uses OpenSSL. So I&#39;m going to walk you through the steps of building OpenSSL for Android.
-
-1. Make sure you have the [Android NDK](https://developer.android.com/ndk/downloads/index.html) setup on your local machine, and have set up the [Standalone Toolchain](https://developer.android.com/ndk/guides/standalone_toolchain.html). I&#39;m not going to detail how to do this, but a good starting place is [here](https://gist.github.com/Tydus/11109634).
-2. Download the latest version of [OpenSSL](https://www.openssl.org/source/) (I&#39;m using 1.0.2h).
-3. Build OpenSSL for all Android architectures:
-  * OpenSSL has a [Wiki](https://wiki.openssl.org/index.php/Android) on how to build for Android. If you know what you are doing, then this might be the best place to do this step. If so, skip the next section.
-  * If you don&#39;t know what you are doing like me, then download a script that will do this step for you. I&#39;m using the script found [here](https://github.com/stdchpie/android-openssl). Follow the steps in the next section.
-
-#### Build OpenSSL for All Android Architectures
-
-If you already know how to do this, and you don&#39;t need to use the script found [here](https://github.com/stdchpie/android-openssl), then skip this section.
-
-1. Clone the GitHub project mentioned in the link above ([here it is again](https://github.com/stdchpie/android-openssl) for good measure).
-2. Unzip OpenSSL into a folder named `openssl`. Your folder structure should look something like this:
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;openssl&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;openssl-1.0.2h/&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;ol start=&quot;3&quot;&gt;
-&lt;li markdown=&quot;1&quot;&gt;
-Put the `build-all-arch.sh` and `setenv-android-mod.sh` into the `openssl` folder created in the last step.
-&lt;/li&gt;
-&lt;li markdown=&quot;1&quot;&gt;You&#39;ll need to modify the `build-all-arch.sh` script to build for your OpenSSL version. Go to line 56, and you&#39;ll see the following:
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;style&gt;
-#offset-55 + .highlight code {
-    counter-increment: line-numbering 55;
-}
-&lt;/style&gt;
-&lt;div id=&quot;offset-55&quot;&gt;&lt;/div&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;hll&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;openssl-1.0.1j
-&lt;/span&gt;&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;xCFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-DSHARED_EXTENSION=.so -fPIC -DOPENSSL_PIC -DDSO_DLFCN -DHAVE_DLFCN_H -mandroid -I$ANDROID_DEV/include -B$ANDROID_DEV/$xLIB -O3 -fomit-frame-pointer -Wall&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/install: all install_docs install_sw/install: install_docs install_sw/g&amp;#39;&lt;/span&gt; Makefile.org&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ol start=&quot;5&quot;&gt;
-&lt;li markdown=&quot;1&quot;&gt;
-Change this to be your OpenSSL version. Mine looks like this:
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;style&gt;
-#offset-55 + .highlight code {
-    counter-increment: line-numbering 55;
-}
-&lt;/style&gt;
-&lt;div id=&quot;offset-55&quot;&gt;&lt;/div&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;&lt;span class=&quot;hll&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;openssl-1.0.2h
-&lt;/span&gt;&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;&lt;span class=&quot;nv&quot;&gt;xCFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;-DSHARED_EXTENSION=.so -fPIC -DOPENSSL_PIC -DDSO_DLFCN -DHAVE_DLFCN_H -mandroid -I$ANDROID_DEV/include -B$ANDROID_DEV/$xLIB -O3 -fomit-frame-pointer -Wall&amp;quot;&lt;/span&gt;
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;
-&lt;a name=&quot;True-5&quot;&gt;&lt;/a&gt;perl -pi -e &lt;span class=&quot;s1&quot;&gt;&amp;#39;s/install: all install_docs install_sw/install: install_docs install_sw/g&amp;#39;&lt;/span&gt; Makefile.org&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ol start=&quot;6&quot;&gt;
-&lt;li markdown=&quot;1&quot;&gt;
-Now your folder structure should look like this:
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;openssl&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ls
-&lt;a name=&quot;True-2&quot;&gt;&lt;/a&gt;build-all-arch.sh*
-&lt;a name=&quot;True-3&quot;&gt;&lt;/a&gt;openssl-1.0.2h/
-&lt;a name=&quot;True-4&quot;&gt;&lt;/a&gt;setenv-android-mod.sh*&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ol start=&quot;7&quot;&gt;
-&lt;li markdown=&quot;1&quot;&gt;
-Now you are ready to build! Just run:
-&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;a name=&quot;True-1&quot;&gt;&lt;/a&gt;openssl&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./build-all-arch.sh&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-When that&#39;s done building, you should see a folder called `prebuilt` within the `openssl` folder. This will contain all of the shared libraries that will be necessary to build POCO.
-
-Congratulations! You just got through the part that was definitely the biggest pain for me. I spent a lot of time trying to build OpenSSL through their Wiki, Gradle, Android makefiles, etc. and finally found that script.
-
-----
-
-In my next post I&#39;ll detail how to build POCO. I&#39;ll link the article here once it&#39;s done. Thanks for reading, and let me know if you have any questions in the comments below!
-</content>
- </entry>
  
  <entry>
    <title>POCO and OpenSSL Using C++ on Android - Part 1</title>
